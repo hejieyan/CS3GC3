@@ -613,7 +613,7 @@ int main(int argc, char** argv) {
 	computeNormals();
 
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(600, 600);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Terrain");
