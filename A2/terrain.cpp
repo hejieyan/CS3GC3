@@ -89,6 +89,28 @@ Material material1 = {
 	100.8						// Shininess
 };
 
+// Instructions
+void showInstructions() {
+	printf("\n\n~~~TERRAIN MODELLER~~~\n"
+		"This terrain modeller generates random 3D terrains according to the circle algorithm. \n"
+		"Please enter the desired dimensions when prompt.\n\n"
+		"The program supports the following commands: \n"
+		"\t arrow keys - rotate camera around the x and y axes \n"
+		"\t q - toggle between flat and Gouraud shading \n"
+		"\t w - change between filled, wireframe, or filled + wireframe terrain view \n"
+		"\t e - toggle lighting on or off \n"
+		"\t r - generates a new random terrain \n"
+		"\t t - toggle between triangle strips and quad strips\n\n"
+		"Improved camera commands: \n"
+		"\t z, c - rotate camera in the X-axis\n"
+		"\t a, d - rotate camera in the Y-axis\n"
+		"\t s, x - rotate camera in the Z-axis\n"
+		"\t i, k - move viewport up/down\n"
+		"\t j, l - move viewport left/right\n"
+		"\t u, o - move viewport closer/farther\n"
+		);
+}
+
 // Requests dimensions of the terrain space
 // Ensures user inputs are in the valid range
 void getUserInput() {
@@ -361,6 +383,22 @@ void display() {
 	glRotatef(cameraRotationY,1,0,0);
 	glRotatef(cameraRotationX,0,1,0);
 
+	// glPointSize(5);
+	// glBegin(GL_POINTS);
+	// 	glColor3f(1,0,0);
+	// 	for (int x = -100; x < 100; x ++) {
+	// 		glVertex3f(x,0,0);
+	// 	}
+	// 	glColor3f(0,1,0);
+	// 	for (int y = -100; y < 100; y ++) {
+	// 		glVertex3f(0,y,0);
+	// 	}
+	// 	glColor3f(0,0,1);
+	// 	for (int z = -100; z < 100; z ++) {
+	// 		glVertex3f(0,0,z);
+	// 	}
+	// glEnd();
+
 	switch (lightOn) {
 		case true:
 			enableLighting();
@@ -567,6 +605,7 @@ void initFunc() {
 }
 
 int main(int argc, char** argv) {
+	showInstructions();
 	getUserInput();
 	initCamera();
 	srand(time(NULL)); //Allows for a random seed based on the time; different every time
