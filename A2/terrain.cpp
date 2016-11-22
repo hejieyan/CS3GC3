@@ -14,6 +14,8 @@
 #  include <GL/freeglut.h>
 #endif
 
+// TODO: Multiple files
+
 // MARK: Global Variables
 // Constant scene window size 
 const int sceneLength = 500;
